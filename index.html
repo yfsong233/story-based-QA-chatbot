@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QA Chatbot</title>
+</head>
+<body>
+    <h2>Ask a Question About 'The Dandelion Girl'</h2>
+    <form method="post">
+        <textarea name="question" rows="4" cols="50" placeholder="Enter your question here"></textarea>
+        <br>
+        <input type="submit" value="Ask">
+    </form>
+    <!-- Display error message -->
+    {% if error_message %}
+    <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+    {% if answer %}
+    <p><b>Answer:</b> {{ answer }}</p>
+    {% endif %}
+    {% if feedback_prompt %}
+    <p>{{ feedback_prompt }}</p>
+    <form method="post">
+        <input type="hidden" name="feedback" value="yes">
+        <textarea name="question" rows="4" cols="50" placeholder="Revise your question here"></textarea>
+        <br>
+        <input type="submit" value="Submit Revised Question">
+    </form>
+    {% endif %}
+</body>
+</html>
